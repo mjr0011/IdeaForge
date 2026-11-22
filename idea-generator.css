@@ -1,0 +1,399 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+    --bg: #faf9ff;
+    --panel: #ffffff;
+    --text: #211b32;
+    --muted: #777187;
+    --border: #e9e4f1;
+    --purple: #7950dc;
+    --soft: #f3effb;
+}
+
+[data-theme="dark"] {
+    --bg: #11101a;
+    --panel: #1b1926;
+    --text: #f5f1ff;
+    --muted: #aaa3bb;
+    --border: #343044;
+    --soft: #272238;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font: 800 22px Manrope;
+}
+
+.brand span,
+.intro h1 span {
+    color: var(--purple);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.header button,
+#regenerateBtn {
+    padding: 10px 14px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.container {
+    width: min(1050px, 90%);
+    margin: auto;
+    padding: 65px 0;
+}
+
+.intro {
+    text-align: center;
+    max-width: 650px;
+    margin: auto auto 35px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--purple);
+    font-weight: 800;
+}
+
+.intro h1 {
+    font: 800 clamp(32px, 5vw, 49px) Manrope;
+    letter-spacing: -2px;
+    margin: 15px 0;
+}
+
+.intro p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.generator {
+    max-width: 650px;
+    margin: auto;
+    padding: 28px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.field {
+    margin-bottom: 19px;
+}
+
+.field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--purple);
+}
+
+#generateBtn {
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    border-radius: 9px;
+    background: linear-gradient(120deg, #9065ee, #693dc8);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#generateBtn:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+#generatorMessage {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.results-section {
+    margin-top: 60px;
+}
+
+.results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.results-heading h2 {
+    font: 800 25px Manrope;
+    margin: 8px 0;
+}
+
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.idea-card {
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+.idea-card h3 {
+    font: 700 16px Manrope;
+    line-height: 1.5;
+}
+
+.idea-card p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.idea-meta {
+    font-size: 10px;
+    color: var(--purple);
+    margin-bottom: 12px;
+}
+
+.save-btn {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--purple);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.save-btn:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+@media(max-width:650px) {
+    .container {
+        padding: 40px 0;
+    }
+
+    .generator {
+        padding: 20px;
+    }
+
+    .ideas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .results-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =================================
+   IDEAFORGE AI CREATIVE WORKSPACE
+================================= */
+
+.idea-tools,
+.script-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.hooks-panel,
+.script-panel {
+    margin-top: 18px;
+    padding: 16px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.generated-hook {
+    padding: 12px;
+    margin-top: 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.generated-hook.selected {
+    border-color: var(--purple);
+}
+
+.generated-hook p {
+    line-height: 1.6;
+}
+
+.script-editor,
+.script-cta {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    font: inherit;
+}
+
+.script-editor {
+    resize: vertical;
+    line-height: 1.7;
+    min-height: 260px;
+}
+
+.script-panel h4 {
+    font-family: Manrope, sans-serif;
+}
+
+.hooks-panel[hidden],
+.script-panel[hidden] {
+    display: none;
+}
+
+@media(max-width: 480px) {
+    .idea-tools {
+        flex-direction: column;
+    }
+
+    .idea-tools button {
+        width: 100%;
+    }
+}
+
+
+/* Keep each idea card independent */
+#ideasContainer {
+    align-items: start;
+}
+
+#ideasContainer .idea-card {
+    align-self: start;
+    min-width: 0;
+    height: fit-content;
+}
+
+/* Keep generated tools inside their own idea card */
+#ideasContainer .hooks-panel,
+#ideasContainer .script-panel {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   GENERATOR CREATOR PROFILE
+===================================== */
+
+.generator-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.generator-profile-avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5b4bdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+}
+
+#generatorAvatarImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#generatorAvatarImage[hidden] {
+    display: none !important;
+}
+
+#generatorProfileName {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .generator-profile {
+        gap: 0;
+    }
+
+    #generatorProfileName {
+        display: none;
+    }
+}

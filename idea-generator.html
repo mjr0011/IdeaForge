@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Generator | IdeaForge</title>
+    <link rel="stylesheet" href="idea-generator.css">
+</head>
+<body>
+
+<div class="app">
+    <header class="header">
+        <a href="dashboard.html" class="brand">✳ Idea<span>Forge</span></a>
+
+        <div class="header-actions">
+            <a href="dashboard.html">Dashboard</a>
+
+            <!-- CREATOR PROFILE -->
+            <a href="profile.html" class="generator-profile">
+                <div class="generator-profile-avatar">
+                    <span id="generatorAvatarInitial">U</span>
+                    <img
+                        id="generatorAvatarImage"
+                        src=""
+                        alt="Creator profile photo"
+                        hidden
+                    >
+                </div>
+
+                <span id="generatorProfileName">Creator</span>
+            </a>
+
+            <button type="button" id="themeToggle">☾</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <span class="eyebrow">YOUR CREATIVE ASSISTANT</span>
+            <h1>Never run out of <span>great ideas.</span></h1>
+            <p>Tell us what you create. We'll help you discover your next big content idea.</p>
+        </section>
+
+        <section class="generator">
+            <form id="ideaForm">
+
+                <div class="field">
+                    <label for="niche">What's your niche?</label>
+                    <select id="niche" required>
+                        <option value="">Choose your niche</option>
+                        <option>Technology</option>
+                        <option>Business</option>
+                        <option>Education</option>
+                        <option>Fashion</option>
+                        <option>Fitness</option>
+                        <option>Lifestyle</option>
+                        <option>Food</option>
+                        <option>Travel</option>
+                        <option>Entertainment</option>
+                        <option>Personal Development</option>
+                        <option>Finance</option>
+                        <option>Beauty</option>
+                        <option>Gaming</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="platform">Choose your platform</label>
+                    <select id="platform" required>
+                        <option value="">Select platform</option>
+                        <option>TikTok</option>
+                        <option>YouTube</option>
+                        <option>Instagram</option>
+                        <option>Facebook</option>
+                        <option>LinkedIn</option>
+                        <option>X</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="format">Content format</label>
+                    <select id="format" required>
+                        <option value="">Choose format</option>
+                        <option>Short-form video</option>
+                        <option>Long-form video</option>
+                        <option>Carousel</option>
+                        <option>Educational post</option>
+                        <option>Storytelling</option>
+                        <option>Listicle</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="topic">Specific topic (optional)</label>
+                    <input
+                        type="text"
+                        id="topic"
+                        placeholder="e.g. Artificial intelligence, saving money..."
+                    >
+                </div>
+
+                <button type="submit" id="generateBtn">
+                    ✳ Generate 5 Ideas
+                </button>
+
+                <p id="generatorMessage" role="status"></p>
+            </form>
+        </section>
+
+        <section class="results-section" id="resultsSection" hidden>
+            <div class="results-heading">
+                <div>
+                    <span class="eyebrow">YOUR INSPIRATION BOARD</span>
+                    <h2>Fresh ideas for you.</h2>
+                </div>
+                <button id="regenerateBtn">↻ Regenerate</button>
+            </div>
+
+            <div id="ideasContainer" class="ideas-grid"></div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/idea-generator.js"></script>
+
+</body>
+</html>

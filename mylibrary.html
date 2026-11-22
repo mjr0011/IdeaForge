@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Content Library | IdeaForge</title>
+
+    <link rel="stylesheet" href="css/mylibrary.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="idea-generator.html" class="brand">
+                <span class="brand-icon">✳</span>
+                <span>IdeaForge</span>
+            </a>
+
+            <div class="sidebar-section">
+                <p class="sidebar-label">WORKSPACE</p>
+
+                <a href="idea-generator.html" class="nav-link">
+                    <span>✧</span>
+                    Idea Generator
+                </a>
+
+                <a href="my-library.html" class="nav-link active">
+                    <span>▤</span>
+                    My Library
+                </a>
+
+                <a href="my-library.html?filter=favorites" class="nav-link">
+                    <span>♡</span>
+                    Favorites
+                </a>
+            </div>
+            <!-- CREATOR PROFILE -->
+<div class="sidebar-profile">
+
+    <div class="sidebar-profile-avatar">
+        <span id="libraryAvatarInitial">U</span>
+
+        <img
+            id="libraryAvatarImage"
+            src=""
+            alt="Creator profile photo"
+            hidden
+        >
+    </div>
+
+    <div class="sidebar-profile-info">
+        <strong id="libraryProfileName">Creator</strong>
+        <small>Creator Account</small>
+    </div>
+
+    <a href="profile.html" class="profile-settings-link" title="Edit profile">
+        ⚙
+    </a>
+
+</div>
+            <div class="sidebar-bottom">
+                <button id="themeToggle" class="theme-toggle">
+                    ☾ <span>Dark mode</span>
+                </button>
+
+                <button id="logoutBtn" class="logout-btn">
+                    ↪ Sign out
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <button id="menuToggle" class="menu-toggle">
+                    ☰
+                </button>
+
+                <div>
+                    <p class="breadcrumb">Workspace / My Library</p>
+                    <h2>My Content Library</h2>
+                </div>
+
+                <a href="idea-generator.html" class="primary-btn">
+                    + Generate Ideas
+                </a>
+
+            </header>
+
+            <section class="page-intro">
+
+                <div>
+                    <h1>Your creative workspace.</h1>
+
+                    <p>
+                        All your saved ideas, hooks and scripts,
+                        organized in one place.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-icon">▤</span>
+                    <p>Total Ideas</p>
+                    <h2 id="totalIdeas">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">♡</span>
+                    <p>Favorites</p>
+                    <h2 id="totalFavorites">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">✎</span>
+                    <p>Saved Scripts</p>
+                    <h2 id="totalScripts">0</h2>
+                </div>
+
+            </section>
+
+            <!-- SEARCH AND FILTERS -->
+            <section class="library-controls">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search ideas, titles, topics..."
+                    >
+                </div>
+
+                <select id="platformFilter">
+                    <option value="">All Platforms</option>
+                    <option value="YouTube">YouTube</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="X">X</option>
+                </select>
+
+                <select id="formatFilter">
+                    <option value="">All Formats</option>
+                    <option value="Educational post">Educational post</option>
+                    <option value="Tutorial">Tutorial</option>
+                    <option value="Short video">Short video</option>
+                    <option value="Long video">Long video</option>
+                    <option value="Carousel">Carousel</option>
+                    <option value="Story">Story</option>
+                </select>
+
+                <select id="sortFilter">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="az">Title A-Z</option>
+                </select>
+
+            </section>
+
+            <!-- TABS -->
+            <section class="library-tabs">
+
+                <button class="tab-btn active" data-filter="all">
+                    All Content
+                </button>
+
+                <button class="tab-btn" data-filter="favorites">
+                    ♡ Favorites
+                </button>
+
+                <button class="tab-btn" data-filter="scripts">
+                    Scripts
+                </button>
+
+                <button class="tab-btn" data-filter="ideas">
+                    Ideas
+                </button>
+
+            </section>
+
+            <!-- STATUS MESSAGE -->
+            <div id="libraryMessage" class="message" role="status"></div>
+
+            <!-- LOADING -->
+            <div id="loadingState" class="loading-state">
+                <div class="loader"></div>
+                <p>Loading your creative library...</p>
+            </div>
+
+            <!-- CONTENT GRID -->
+            <section
+                id="libraryGrid"
+                class="library-grid"
+                aria-live="polite"
+            ></section>
+
+            <!-- EMPTY STATE -->
+            <section id="emptyState" class="empty-state" hidden>
+
+                <div class="empty-icon">✧</div>
+
+                <h2 id="emptyTitle">Your library is empty</h2>
+
+                <p id="emptyDescription">
+                    Generate and save your first content idea
+                    to start building your creative library.
+                </p>
+
+                <a href="idea-generator.html" class="primary-btn">
+                    Generate Your First Idea
+                </a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- EDIT CONTENT MODAL -->
+    <div id="editModal" class="modal" hidden>
+
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">CONTENT EDITOR</p>
+                    <h2>Edit Your Content</h2>
+                </div>
+
+                <button id="closeModal" class="close-btn">
+                    ×
+                </button>
+            </div>
+
+            <form id="editForm">
+
+                <input type="hidden" id="editId">
+
+                <label for="editTitle">Title</label>
+                <input
+                    type="text"
+                    id="editTitle"
+                    maxlength="200"
+                    required
+                >
+
+                <label for="editDescription">Description</label>
+                <textarea
+                    id="editDescription"
+                    rows="4"
+                ></textarea>
+
+                <label for="editHook">Opening Hook</label>
+                <textarea
+                    id="editHook"
+                    rows="3"
+                ></textarea>
+
+                <label for="editAngle">Creative Angle</label>
+                <textarea
+                    id="editAngle"
+                    rows="3"
+                ></textarea>
+
+                <label for="editScript">Content Script</label>
+                <textarea
+                    id="editScript"
+                    rows="8"
+                    placeholder="Your saved script will appear here..."
+                ></textarea>
+
+                <label for="editCTA">Call to Action</label>
+                <textarea
+                    id="editCTA"
+                    rows="2"
+                ></textarea>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelEdit"
+                        class="secondary-btn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveEdit"
+                        class="primary-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- DELETE CONFIRMATION -->
+    <div id="deleteModal" class="modal" hidden>
+
+        <div class="modal-overlay" id="deleteOverlay"></div>
+
+        <div class="confirm-box">
+
+            <div class="delete-icon">!</div>
+
+            <h2>Delete this content?</h2>
+
+            <p>
+                This action cannot be undone. Your saved content
+                will be permanently deleted.
+            </p>
+
+            <div class="modal-actions">
+
+                <button id="cancelDelete" class="secondary-btn">
+                    Cancel
+                </button>
+
+                <button id="confirmDelete" class="danger-btn">
+                    Delete Content
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 
+      IMPORTANT:
+      Paste the SAME Supabase initialization script tag used
+      in your existing idea-generator.html here.
+      It must initialize window.supabaseClient.
+    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script src="js/mylibrary.js"></script>
+
+</body>
+</html>

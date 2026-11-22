@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account — IdeaForge</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+  <button class="theme" id="themeToggle">☾</button>
+
+  <div class="auth-shell">
+    <main class="auth-side">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✳</span>idea<b>forge</b>
+      </a>
+
+      <div class="auth-main">
+        <h1>Create your space.</h1>
+        <p class="sub">A few details, then let's find your next great idea.</p>
+
+        <form id="signupForm">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="password">Create password</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+              <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password" aria-pressed="false" onclick="const passwordInput = document.getElementById('password'); const show = passwordInput.type === 'password'; passwordInput.type = show ? 'text' : 'password'; this.textContent = show ? 'Hide' : 'Show'; this.setAttribute('aria-label', show ? 'Hide password' : 'Show password'); this.setAttribute('aria-pressed', show ? 'true' : 'false');">Show</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Enter password again" required minlength="8" autocomplete="new-password">
+          </div>
+
+          <button class="primary" id="createAccountButton" type="submit">Create free account →</button>
+          <div class="message" id="formMessage" aria-live="polite"></div>
+        </form>
+
+        <p class="auth-foot">
+          Already have an account?
+          <a href="login.html">Log in</a>
+        </p>
+      </div>
+    </main>
+
+    <aside class="auth-art">
+      <div></div>
+
+      <div>
+        <h2>Good things start with one idea.</h2>
+        <p>Build a creative habit with a little help turning blank-page moments into possibilities.</p>
+      </div>
+
+      <div class="art-card">
+        <small>YOUR CREATIVE SPACE</small>
+        <h3>One spark can become a whole series.</h3>
+        <span class="art-pill">✳ Discover</span>
+        <span class="art-pill">↗ Develop</span>
+        <span class="art-pill">▦ Organize</span>
+      </div>
+
+      <small>IDEAFORGE · MADE FOR CREATORS</small>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

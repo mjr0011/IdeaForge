@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | IdeaForge</title>
+
+    <link rel="stylesheet" href="css/profile.css">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+</head>
+
+<body>
+
+    <div class="profile-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <span class="brand-icon">✦</span>
+                <span>IdeaForge</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <span>▦</span> Dashboard
+                </a>
+
+                <a href="idea-generator.html" class="nav-link">
+                    <span>✧</span> Idea Generator
+                </a>
+
+                <a href="mylibrary.html" class="nav-link">
+                    <span>▤</span> My Library
+                </a>
+
+                <a href="profile.html" class="nav-link active">
+                    <span>♙</span> My Profile
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button id="themeToggle" class="sidebar-action">
+                    <span>◐</span> Toggle Theme
+                </button>
+
+                <button id="logoutBtn" class="sidebar-action logout">
+                    <span>↪</span> Log Out
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <button id="menuToggle" class="menu-toggle" aria-label="Open menu">
+                    ☰
+                </button>
+
+                <div>
+                    <p class="eyebrow">ACCOUNT SETTINGS</p>
+                    <h1>My Profile</h1>
+                </div>
+
+                <div class="topbar-user">
+                    <div class="user-avatar" id="topAvatar">U</div>
+                </div>
+            </header>
+
+            <section class="profile-intro">
+                <div>
+                    <h2>Creator Profile</h2>
+                    <p>Manage your personal information and creator preferences.</p>
+                </div>
+            </section>
+
+            <!-- PROFILE FORM -->
+            <section class="profile-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Tell the IdeaForge community a little about yourself.</p>
+                    </div>
+                </div>
+
+                
+<!-- PROFILE PHOTO UPLOAD SECTION -->
+
+<div class="profile-avatar-section">
+
+    <div class="large-avatar-wrapper">
+
+        <img
+            id="profileAvatarImage"
+            class="large-avatar profile-photo"
+            src=""
+            alt="Your profile photo"
+            hidden
+        >
+
+        <div class="large-avatar" id="profileAvatar">
+            U
+        </div>
+
+    </div>
+
+    <div class="avatar-details">
+
+        <h3 id="profileDisplayName">Your Profile</h3>
+
+        <p class="muted">
+            Your IdeaForge creator profile
+        </p>
+
+        <div class="avatar-actions">
+
+            <input
+                type="file"
+                id="avatarInput"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+            >
+
+            <button
+                type="button"
+                id="uploadAvatarBtn"
+                class="primary-btn avatar-upload-btn"
+            >
+                Upload Photo
+            </button>
+
+            <button
+                type="button"
+                id="removeAvatarBtn"
+                class="remove-avatar-btn"
+                hidden
+            >
+                Remove Photo
+            </button>
+
+        </div>
+
+        <p class="avatar-note">
+            JPG, PNG or WEBP. Maximum file size: 5MB.
+        </p>
+
+        <p
+            id="avatarMessage"
+            class="form-message"
+            role="status"
+        ></p>
+
+    </div>
+
+</div>
+
+
+                <form id="profileForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                maxlength="100"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="e.g. creativejohn"
+                                maxlength="30"
+                                autocomplete="username"
+                            >
+                            <small>Use letters, numbers and underscores.</small>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="bio">Short Biography</label>
+                            <textarea
+                                id="bio"
+                                rows="4"
+                                placeholder="Tell us about yourself and the content you create..."
+                                maxlength="500"
+                            ></textarea>
+                            <small>Maximum 500 characters.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="niche">Main Content Niche</label>
+                            <input
+                                type="text"
+                                id="niche"
+                                placeholder="e.g. Technology, Fashion, Education"
+                                maxlength="100"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferredPlatform">Preferred Platform</label>
+                            <select id="preferredPlatform">
+                                <option value="">Select a platform</option>
+                                <option value="YouTube">YouTube</option>
+                                <option value="TikTok">TikTok</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="X">X (Twitter)</option>
+                                <option value="LinkedIn">LinkedIn</option>
+                                <option value="Blog">Blog / Website</option>
+                                <option value="Multiple Platforms">Multiple Platforms</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Your account email"
+                                readonly
+                            >
+                            <small>Your email address is managed through your account.</small>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="saveProfileBtn" class="primary-btn">
+                            Save Changes
+                        </button>
+
+                        <span id="profileMessage" class="form-message" role="status"></span>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- PASSWORD SECTION -->
+            <section class="profile-card password-card">
+
+                <div class="card-heading">
+                    <div>
+                        <h2>Security</h2>
+                        <p>Change your account password.</p>
+                    </div>
+                </div>
+
+                <form id="passwordForm">
+
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter a new password"
+                            minlength="8"
+                            autocomplete="new-password"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your new password"
+                            minlength="8"
+                            autocomplete="new-password"
+                        >
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="updatePasswordBtn" class="primary-btn">
+                            Update Password
+                        </button>
+
+                        <span id="passwordMessage" class="form-message" role="status"></span>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <footer class="page-footer">
+                <p>IdeaForge — Turn your creativity into content.</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/profile.js"></script>
+
+</body>
+</html>

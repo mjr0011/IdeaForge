@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Creator Dashboard | IdeaForge</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">✳</span>
+                <span>IdeaForge</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-label">WORKSPACE</p>
+
+                <a href="dashboard.html" class="nav-link active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="idea-generator.html" class="nav-link">
+                    <span>✳</span>
+                    Idea Generator
+                </a>
+
+                <a href="mylibrary.html" class="nav-link">
+                    <span>▤</span>
+                    My Library
+                </a>
+
+                <p class="nav-label">ACCOUNT</p>
+
+                <a href="profile.html" class="nav-link">
+                    <span>◉</span>
+                    My Profile
+                </a>
+
+                <button type="button" id="logoutBtn" class="nav-link logout-link">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-tip">
+                    <span>💡</span>
+                    <h4>Creator Tip</h4>
+                    <p>Consistency is the secret behind successful content creation.</p>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+                    <button type="button" id="menuToggle" class="menu-toggle">
+                        ☰
+                    </button>
+
+                    <div>
+                        <h2>Creator Dashboard</h2>
+                        <p>Your content creation overview</p>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+
+                    <button type="button" id="themeToggle" class="theme-toggle">
+                        ☾
+                    </button>
+
+                    <div class="user-info">
+                        
+<div class="user-avatar" id="dashboardAvatar">
+
+    <span id="userAvatar">C</span>
+
+    <img
+        id="dashboardAvatarImage"
+        src=""
+        alt="Creator profile photo"
+        hidden
+    >
+
+</div>
+
+
+                        <div>
+                            <strong id="userName">Creator</strong>
+                            <small>Content Creator</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- DASHBOARD CONTENT -->
+            <section class="dashboard-content">
+
+                <!-- WELCOME -->
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="welcome-label">YOUR CREATOR SPACE</p>
+
+                        <h1>
+                            Welcome back,
+                            <span id="welcomeName">Creator</span> 👋
+                        </h1>
+
+                        <p>
+                            Here's what's happening with your content.
+                            Keep creating and growing!
+                        </p>
+                    </div>
+
+                    <a href="idea-generator.html" class="primary-btn">
+                        ✳ Generate New Ideas
+                    </a>
+
+                </div>
+
+
+                <!-- ANALYTICS CARDS -->
+                <section class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon purple">✳</span>
+                            <span class="stat-label">Saved Ideas</span>
+                        </div>
+
+                        <h2 id="totalIdeas">0</h2>
+
+                        <p>Your saved content ideas</p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon blue">▤</span>
+                            <span class="stat-label">Scripts Created</span>
+                        </div>
+
+                        <h2 id="totalScripts">0</h2>
+
+                        <p>Your saved scripts</p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon pink">♡</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+
+                        <h2 id="totalFavorites">0</h2>
+
+                        <p>Your favorite ideas</p>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon green">▣</span>
+                            <span class="stat-label">Saved This Week</span>
+                        </div>
+
+                        <h2 id="weeklyIdeas">0</h2>
+
+                        <p>Ideas saved in the last 7 days</p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- CHARTS -->
+                <section class="analytics-grid">
+
+                    <article class="dashboard-card activity-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Content Activity</h3>
+                                <p>Your saved content over the last 7 days</p>
+                            </div>
+
+                            <span class="card-icon">▥</span>
+                        </div>
+
+                        <div class="activity-chart" id="activityChart">
+                            <p class="loading-text">Loading activity...</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="dashboard-card platform-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <h3>Platform Breakdown</h3>
+                                <p>Where your content is focused</p>
+                            </div>
+                        </div>
+
+                        <div id="platformBreakdown" class="platform-breakdown">
+                            <p class="loading-text">Loading platforms...</p>
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- ========================================== -->
+<!-- USAGE & PLAN -->
+<!-- ========================================== -->
+
+<section class="usage-plan-section">
+
+    <div class="usage-section-heading">
+        <div>
+            <h3>Usage & Plan</h3>
+            <p>Monitor your monthly IdeaForge activity.</p>
+        </div>
+
+        <span class="plan-badge" id="currentPlanName">
+            Free Plan
+        </span>
+    </div>
+
+
+    <div class="usage-plan-grid">
+
+        <!-- MONTHLY USAGE -->
+        <article class="dashboard-card usage-card">
+
+            <div class="card-heading">
+                <div>
+                    <h3>Monthly Usage</h3>
+                    <p id="usageMonthLabel">Current month</p>
+                </div>
+
+                <span class="card-icon">▥</span>
+            </div>
+
+
+            <!-- IDEAS GENERATED -->
+            <div class="usage-item">
+
+                <div class="usage-item-heading">
+                    <span>Ideas Generated</span>
+
+                    <strong id="usageIdeasGenerated">
+                        0
+                    </strong>
+                </div>
+
+                <div class="usage-progress">
+                    <div
+                        class="usage-progress-fill"
+                        id="usageIdeasGeneratedBar"
+                        style="width: 0%;"
+                    ></div>
+                </div>
+
+                <small id="usageIdeasGeneratedLimit">
+                    Plan limit not configured
+                </small>
+
+            </div>
+
+
+            <!-- IDEAS SAVED -->
+            <div class="usage-item">
+
+                <div class="usage-item-heading">
+                    <span>Ideas Saved</span>
+
+                    <strong id="usageIdeasSaved">
+                        0
+                    </strong>
+                </div>
+
+                <div class="usage-progress">
+                    <div
+                        class="usage-progress-fill"
+                        id="usageIdeasSavedBar"
+                        style="width: 0%;"
+                    ></div>
+                </div>
+
+                <small id="usageIdeasSavedLimit">
+                    Plan limit not configured
+                </small>
+
+            </div>
+
+
+            <!-- SCRIPTS GENERATED -->
+            <div class="usage-item">
+
+                <div class="usage-item-heading">
+                    <span>Scripts Generated</span>
+
+                    <strong id="usageScriptsGenerated">
+                        0
+                    </strong>
+                </div>
+
+                <div class="usage-progress">
+                    <div
+                        class="usage-progress-fill"
+                        id="usageScriptsGeneratedBar"
+                        style="width: 0%;"
+                    ></div>
+                </div>
+
+                <small id="usageScriptsGeneratedLimit">
+                    Plan limit not configured
+                </small>
+
+            </div>
+
+        </article>
+
+
+        <!-- CURRENT PLAN -->
+        <article class="dashboard-card current-plan-card">
+
+            <div class="plan-card-icon">
+                ✳
+            </div>
+
+            <h3>Your Current Plan</h3>
+
+            <h2 id="planDisplayName">
+                Free Plan
+            </h2>
+
+            <p id="planDescription">
+                Your IdeaForge creator workspace.
+            </p>
+
+            <div class="plan-status" id="planStatus">
+                Active
+            </div>
+
+            <p class="plan-note">
+                Subscription upgrades and billing will be
+                available in a future update.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+                <!-- RECENT CONTENT -->
+                <section class="dashboard-card recent-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h3>Recently Saved Content</h3>
+                            <p>Your latest saved ideas and scripts</p>
+                        </div>
+
+                        <a href="mylibrary.html" class="view-all">
+                            View All →
+                        </a>
+
+                    </div>
+
+                    <div id="recentContent" class="recent-content">
+
+                        <p class="loading-text">
+                            Loading your saved content...
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- QUICK ACTIONS -->
+                <section class="quick-actions-section">
+
+                    <h3>Quick Actions</h3>
+
+                    <div class="quick-actions-grid">
+
+                        <a href="idea-generator.html" class="quick-action">
+                            <span class="quick-icon purple">✳</span>
+
+                            <div>
+                                <h4>Generate Ideas</h4>
+                                <p>Discover fresh content ideas.</p>
+                            </div>
+
+                            <span class="action-arrow">→</span>
+                        </a>
+
+
+                        <a href="mylibrary.html" class="quick-action">
+                            <span class="quick-icon blue">▤</span>
+
+                            <div>
+                                <h4>Open My Library</h4>
+                                <p>Manage your saved content.</p>
+                            </div>
+
+                            <span class="action-arrow">→</span>
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in — IdeaForge</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <button class="theme" id="themeToggle">☾</button>
+
+  <div class="auth-shell">
+    <main class="auth-side">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✳</span>idea<b>forge</b>
+      </a>
+
+      <div class="auth-main">
+        <h1>Welcome back.</h1>
+        <p class="sub">Pick up where your next great idea begins.</p>
+
+        <form id="loginForm">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              >
+              <button
+                type="button"
+                class="toggle-password"
+                aria-label="Show password"
+                onclick="const password = document.getElementById('password'); const visible = password.type === 'password'; password.type = visible ? 'text' : 'password'; this.textContent = visible ? 'Hide' : 'Show'; this.setAttribute('aria-label', visible ? 'Hide password' : 'Show password');"
+              >Show</button>
+            </div>
+          </div>
+
+          <button class="primary" type="submit">Log in to IdeaForge →</button>
+          <div class="message" id="formMessage" aria-live="polite"></div>
+        </form>
+
+        <p class="auth-foot">
+          New to IdeaForge? <a href="signup.html">Create an account</a>
+        </p>
+      </div>
+    </main>
+
+    <aside class="auth-art">
+      <div></div>
+      <div>
+        <h2>Your next idea is closer than you think.</h2>
+        <p>A creative workspace to discover fresh angles, shape your stories, and keep your content moving.</p>
+      </div>
+      <div class="art-card">
+        <small>YOUR CREATIVE SPACE</small>
+        <h3>Make something worth sharing.</h3>
+        <span class="art-pill">✳ Fresh ideas</span>
+        <span class="art-pill">↗ Better hooks</span>
+        <span class="art-pill">▤ Clear scripts</span>
+      </div>
+      <small>IDEAFORGE · MADE FOR CREATORS</small>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover better content ideas, create stronger hooks, and turn your best ideas into scripts with IdeaForge — your creative workspace." />
+  <title>IdeaForge — Never run out of content ideas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="IdeaForge home"><span class="brand-mark">✳</span><span>idea<span>forge</span></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+      <div class="mobile-nav-actions"><a class="btn btn-quiet" href="login.html">Log in</a><a class="btn btn-primary" href="signup.html">Get started <span>↗</span></a></div>
+    </nav>
+    <div class="header-actions"><button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">☾</button><a class="login-link" href="login.html">Log in</a><a class="btn btn-primary header-cta" href="signup.html">Get started <span>↗</span></a></div>
+  </header>
+
+  <main>
+   <section class="hero">
+  <div class="hero-container">
+    <!-- Left Column: Copy & CTAs -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Stop wondering what to post.
+        <span>Start creating with purpose.</span>
+      </h1>
+      <p class="hero-subtitle">
+        IdeaForge helps you discover content ideas for your niche, develop attention-grabbing hooks, and turn your best ideas into ready-to-edit scripts — all in one creative workspace.
+      </p>
+      <div class="hero-actions">
+        <a href="dashboard.html" class="btn-primary">Generate my first idea →</a>
+        <a href="#how-it-works" class="btn-secondary">See how it works</a>
+      </div>
+    </div>
+
+    <!-- Right Column: Product Workspace Preview Card -->
+    <div class="hero-visual">
+  <div class="mockup-glow"></div>
+  <div class="mockup-card" id="ideaforgePreview">
+    <div class="mockup-header">
+      <div class="window-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="mockup-badge">IdeaForge Studio • Interactive Demo</span>
+    </div>
+
+    <div class="mockup-body">
+      <!-- Step 1: Niche Switcher -->
+      <div class="mockup-step">
+        <div class="step-row">
+          <span class="step-label">1. PICK A NICHE</span>
+          <button type="button" class="shuffle-btn" id="shuffleHookBtn">↻ Shuffle hooks</button>
+        </div>
+        <div class="niche-tabs" role="tablist" aria-label="Sample creator niches">
+          <button type="button" class="niche-tab active" data-niche="ai">AI & Productivity</button>
+          <button type="button" class="niche-tab" data-niche="fitness">Fitness & Habits</button>
+          <button type="button" class="niche-tab" data-niche="finance">Personal Finance</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Selectable Hooks -->
+      <div class="mockup-step">
+        <span class="step-label">2. CLICK A HOOK TO LOAD SCRIPT</span>
+        <div class="hooks-list" id="hooksList"></div>
+      </div>
+
+      <!-- Step 3: Live Script Preview -->
+      <div class="mockup-step">
+        <span class="step-label">3. READY-TO-EDIT SCRIPT</span>
+        <div class="script-preview" id="scriptPreview"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+    <section class="creator-strip section-wrap"><p>ONE CREATIVE HOME FOR EVERY KIND OF CREATOR</p><div class="platforms"><span><b>▶</b> YouTube</span><span><b>♪</b> TikTok</span><span><b>◎</b> Instagram</span><span><b>f</b> Facebook</span><span><b>✎</b> Blogs & more</span></div></section>
+
+    <section class="section section-wrap" id="features">
+      <div class="section-heading"><div class="eyebrow">MORE THAN A BRAINSTORM</div><h2>Everything you need to go<br><span class="gradient-text">from idea to impact.</span></h2><p>One focused workspace for the moments before, during, and after you create.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card feature-featured"><div class="feature-icon purple-icon">✳</div><span class="feature-kicker">01 / DISCOVER</span><h3>Ideas that get<br>your audience.</h3><p>Find relevant, original angles based on your niche, platform, and the people you want to reach.</p><div class="mini-idea-stack"><div>✦ A beginner's guide to…</div><div>✦ What nobody tells you about…</div><div>✦ Try this for 7 days…</div></div></article>
+        <article class="feature-card"><div class="feature-icon peach-icon">↗</div><span class="feature-kicker">02 / CAPTURE</span><h3>Hooks that<br>make them stop.</h3><p>Turn a good topic into an opening line that earns the next few seconds of attention.</p><div class="hook-preview"><small>YOUR OPENING LINE</small><strong>“I wish someone had told me this sooner…”</strong></div></article>
+        <article class="feature-card"><div class="feature-icon blue-icon">▤</div><span class="feature-kicker">03 / CREATE</span><h3>Go from spark<br>to full story.</h3><p>Build your idea into a clear script, caption, outline, or post structure.</p><div class="script-preview"><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="feature-card"><div class="feature-icon green-icon">▦</div><span class="feature-kicker">04 / ORGANIZE</span><h3>Keep your next<br>move in sight.</h3><p>Save promising ideas and plan what you want to publish next.</p><div class="calendar-preview"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><b>✦</b><b>✦</b><b>+</b><b>✦</b></div></article>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works"><div class="section-wrap how-inner"><div class="section-heading"><div class="eyebrow">A SIMPLE CREATIVE RITUAL</div><h2>Three steps. A whole lot<br><span class="gradient-text">less overthinking.</span></h2><p>Go from “what should I post?” to “let's make this” in minutes.</p></div><div class="steps-grid"><article><span class="step-num">01</span><div class="step-icon">⌕</div><h3>Tell us your world</h3><p>Choose your niche, platform, audience, and the kind of content you want to make.</p></article><article><span class="step-num">02</span><div class="step-icon">✳</div><h3>Explore fresh angles</h3><p>Get a curated set of ideas with hooks and useful creative direction to build on.</p></article><article><span class="step-num">03</span><div class="step-icon">↗</div><h3>Make it yours</h3><p>Save your favorites, shape a script, and plan your next piece of content.</p></article></div></div></section>
+
+    <section class="section section-wrap sample-section"><div class="sample-copy"><div class="eyebrow">A LITTLE CREATIVE INSPIRATION</div><h2>Good ideas have<br><span class="gradient-text">more than one angle.</span></h2><p>Start with one topic. Explore different ways to tell the story, teach the lesson, or make someone feel seen.</p><a class="text-link purple-link" href="signup.html">Explore your ideas <span>→</span></a></div><div class="sample-cards"><article class="sample-card sample-one"><span class="sample-tag">EDUCATIONAL</span><span class="sample-symbol">↗</span><h3>Explain the thing<br>everyone gets wrong.</h3><p>Make a confusing topic feel simple and useful.</p><small>01 — MAKE IT CLEAR</small></article><article class="sample-card sample-two"><span class="sample-tag">STORYTELLING</span><span class="sample-symbol">✳</span><h3>Share the moment<br>that changed your mind.</h3><p>Turn a personal lesson into a relatable story.</p><small>02 — MAKE IT HUMAN</small></article><article class="sample-card sample-three"><span class="sample-tag">ENTERTAINING</span><span class="sample-symbol">⌁</span><h3>Test a popular<br>piece of advice.</h3><p>Bring curiosity, personality, and a clear takeaway.</p><small>03 — MAKE IT FUN</small></article></div></section>
+
+   <section class="pricing-section" id="pricing">
+
+    <div class="section-wrap">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                SIMPLE, CREATOR-FRIENDLY PLANS
+            </div>
+
+            <h2>
+                Start creating for free.<br>
+                <span class="gradient-text">
+                    Grow at your own pace.
+                </span>
+            </h2>
+
+            <p>
+                Explore the IdeaForge creative workspace.
+                More options for growing creators are on the way.
+            </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+            <!-- FREE PLAN -->
+
+            <article class="price-card">
+
+                <span class="plan-label">
+                    GET STARTED
+                </span>
+
+                <h3>Free</h3>
+
+                <p class="price-description">
+                    Everything you need to start turning
+                    creative thoughts into content.
+                </p>
+
+                <div class="price">
+                    $0 <small>/ during beta</small>
+                </div>
+
+                <a class="btn btn-primary" href="signup.html">
+                    Start creating free <span>→</span>
+                </a>
+
+                <div class="plan-divider"></div>
+
+                <p class="includes">AVAILABLE FEATURES</p>
+
+                <ul>
+                    <li>AI-powered content idea generation</li>
+                    <li>Five opening hooks for your ideas</li>
+                    <li>AI script generation</li>
+                    <li>Personal content idea library</li>
+                    <li>Creator profile and preferences</li>
+                    <li>Monthly usage dashboard</li>
+                </ul>
+
+            </article>
+
+
+            <!-- CREATOR PLAN -->
+
+            <article class="price-card premium-card">
+
+                <div class="popular-pill">
+                    IN DEVELOPMENT
+                </div>
+
+                <span class="plan-label">
+                    FOR GROWING CREATORS
+                </span>
+
+                <h3>Creator</h3>
+
+                <p class="price-description">
+                    More room, more flexibility, and
+                    additional tools for consistent creators.
+                </p>
+
+                <div class="price coming-price">
+                    Coming soon
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-outline"
+                    disabled
+                >
+                    Not available yet
+                </button>
+
+                <div class="plan-divider"></div>
+
+                <p class="includes">
+                    PLANNED FEATURES
+                </p>
+
+                <ul>
+                    <li>Higher monthly AI usage limits</li>
+                    <li>Expanded content planning tools</li>
+                    <li>More creator workflow options</li>
+                    <li>Additional script and idea tools</li>
+                    <li>Flexible creator plans</li>
+                </ul>
+
+            </article>
+
+        </div>
+
+        <p class="pricing-note">
+            IdeaForge is developing its paid plans.
+            Subscription prices and billing will be announced
+            when those features are ready.
+        </p>
+
+    </div>
+
+</section>
+
+    <section class="section section-wrap faq-section" id="faq"><div class="section-heading"><div class="eyebrow">GOOD QUESTIONS</div><h2>A few things you<br><span class="gradient-text">might be wondering.</span></h2></div><div class="faq-list">
+      <details><summary>What is IdeaForge? <span>+</span></summary><p>IdeaForge is a creative workspace that helps content creators discover ideas, write stronger hooks, develop scripts, and organize future content.</p></details>
+      <details><summary>Who can use IdeaForge? <span>+</span></summary><p>Anyone creating content: YouTubers, TikTok and Instagram creators, bloggers, small businesses, educators, and personal brands.</p></details>
+      <details><summary>Do I need to be an experienced creator? <span>+</span></summary><p>Not at all. IdeaForge is designed to be approachable whether you're publishing your first post or planning an established content series.</p></details>
+      <details><summary>Is there a free plan? <span>+</span></summary><p><p>
+    Yes. IdeaForge currently offers access to its core
+    creative tools during beta, including idea generation,
+    hook creation, script assistance, and your personal
+    content library. Additional plans are in development.
+</p></p></details>
+      <details><summary>Does IdeaForge publish content for me? <span>+</span></summary><p>IdeaForge helps you plan and create. You stay in control of reviewing, editing, and publishing your content.</p></details>
+    </div></section>
+
+    <section class="final-cta section-wrap"><div class="cta-orb orb-a"></div><div class="cta-orb orb-b"></div><div class="cta-content"><div class="eyebrow light-eyebrow">YOUR NEXT IDEA IS WAITING</div><h2>Make room for<br><em>your next big idea.</em></h2><p>Less blank-page energy. More ideas worth bringing to life.</p><a class="btn btn-white btn-large" href="signup.html">Start creating for free <span>→</span></a><small>No credit card required to get started.</small></div></section>
+  </main>
+
+  <footer class="site-footer section-wrap"><a class="brand" href="#"><span class="brand-mark">✳</span><span>idea<span>forge</span></span></a><p>Make something worth sharing.</p><div class="footer-links"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="mailto:hello@ideaforge.example">Contact</a></div><small>© <span id="year"></span> IdeaForge. Built for the next idea.</small></footer>
+  <script src="script.js"></script>
+</body>
+</html>
